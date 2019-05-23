@@ -1,4 +1,27 @@
 body {
+<<<<<<< HEAD
+  width: 800px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px;
+  margin: 0px auto;
+  background-color: #7ecad9;
+}
+h1 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  font-size: 18px;
+=======
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -10,4 +33,5 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+>>>>>>> 394a00821a3ba9037e6f95d5d4584781f6309098
 }
