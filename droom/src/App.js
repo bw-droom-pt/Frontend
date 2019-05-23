@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 
 import { About } from "./components/About";
@@ -24,15 +23,6 @@ function App() {
       <Route path="/signup" component={SignUp} />
       <Route path="/login" component={Login} />
       <Route path="/team" component={Team} />
-=======
-import React from 'react';
-import './App.css';
-
-function App() {
-  return (
-    <div className='App'>
-      <header className='App-header'>Droom!</header>
->>>>>>> 394a00821a3ba9037e6f95d5d4584781f6309098
     </div>
   );
 }
