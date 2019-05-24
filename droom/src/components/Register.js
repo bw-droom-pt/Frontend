@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-class Login extends Component {
+class Register extends Component {
   constructor() {
     super();
     this.state = {
@@ -14,17 +14,17 @@ class Login extends Component {
       [e.target.name]: e.target.value
     });
   };
-  handleLogin = e => {
+  handleRegister = e => {
     e.preventDefault();
     axios
       .post(
-        "https://droom-buildweek-4-15-19.herokuapp.com/api/auth/login",
+        "https://droom-buildweek-4-15-19.herokuapp.com/api/auth/register",
         this.state
       )
       .then(res => {
         console.log(this.state);
         console.log(res);
-        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("token", res.data);
         console.log(res.data);
       })
       .catch(err => {
@@ -35,7 +35,7 @@ class Login extends Component {
     return (
       <div>
         <form>
-          <h3>Please sign in to continue.</h3>
+          <h3>Please sign up to continue.</h3>
           <h4>Enter Your Username</h4>
           <label htmlFor="email" />
           <input
@@ -55,7 +55,7 @@ class Login extends Component {
             onChange={this.handleChange}
             placeholder="Password"
           />
-          <button onClick={this.handleLogin} type="submit">
+          <button onClick={this.handleRegister} type="submit">
             Log in
           </button>
         </form>
@@ -63,4 +63,4 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+export default Register;
