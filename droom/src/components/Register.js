@@ -1,20 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { NavLink } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 
-import {
-  Button,
-  Form,
-  Grid,
-  Header,
-  Image,
-  Message,
-  Segment
-} from "semantic-ui-react";
+import { Button, Form, Grid, Header, Image, Segment } from "semantic-ui-react";
 
-class Login extends Component {
+class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,22 +18,21 @@ class Login extends Component {
       [e.target.name]: e.target.value
     });
   };
-  handleLogin = e => {
+  handleRegister = e => {
     e.preventDefault();
     axios
       .post(
-        "https://droom-buildweek-4-15-19.herokuapp.com/api/auth/login",
+        "https://droom-buildweek-4-15-19.herokuapp.com/api/auth/register",
         this.state
       )
       .then(res => {
         console.log(this.state);
         console.log(res);
-        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("token", res.data);
         console.log(res.data);
       })
       .catch(err => {
-        console.log("err.message", err);
-        localStorage.removeItem("token");
+        console.log(err.message);
       });
   };
   render() {
@@ -55,7 +45,7 @@ class Login extends Component {
         >
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header as="h2" color="teal" textAlign="center">
-              <Image className="logo" src={logo} /> Log-in to your account
+              <Image className="logo" src={logo} /> Please sign up to continue.
             </Header>
             <Form size="large">
               <Segment stacked>
@@ -81,24 +71,19 @@ class Login extends Component {
                 />
 
                 <Button
-                  onClick={this.handleLogin}
+                  onClick={this.handleRegister}
                   color="teal"
                   fluid
                   size="large"
                 >
-                  Login
+                  Sign up
                 </Button>
               </Segment>
             </Form>
-            <NavLink to="/register">
-              <Message>
-                New to us? <a href="#">Sign Up</a>
-              </Message>
-            </NavLink>
           </Grid.Column>
         </Grid>
       </div>
     );
   }
 }
-export default Login;
+export default Register;
