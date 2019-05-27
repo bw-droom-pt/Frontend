@@ -1,9 +1,22 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import { NavLink } from "react-router-dom";
+import logo from "../assets/images/logo.png";
+
+import {
+  Button,
+  Form,
+  Grid,
+  Header,
+  Image,
+  Message,
+  Segment
+} from "semantic-ui-react";
+
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       email: "",
       password: ""
@@ -28,37 +41,62 @@ class Login extends Component {
         console.log(res.data);
       })
       .catch(err => {
-        console.log(err.message);
+        console.log("err.message", err);
+        localStorage.removeItem("token");
       });
   };
   render() {
     return (
       <div>
-        <form>
-          <h3>Please sign in to continue.</h3>
-          <h4>Enter Your Username</h4>
-          <label htmlFor="email" />
-          <input
-            type="text"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-            placeholder="Username"
-          />
+        <Grid
+          textAlign="center"
+          style={{ height: "100%" }}
+          verticalAlign="middle"
+        >
+          <Grid.Column style={{ maxWidth: 450 }}>
+            <Header as="h2" color="teal" textAlign="center">
+              <Image className="logo" src={logo} /> Log-in to your account
+            </Header>
+            <Form size="large">
+              <Segment stacked>
+                <Form.Input
+                  fluid
+                  icon="user"
+                  iconPosition="left"
+                  type="text"
+                  name="email"
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                  placeholder="E-mail address"
+                />
+                <Form.Input
+                  fluid
+                  icon="lock"
+                  iconPosition="left"
+                  placeholder="Password"
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                />
 
-          <h4>Enter Your Password</h4>
-          <label htmlFor="password" />
-          <input
-            type="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-            placeholder="Password"
-          />
-          <button onClick={this.handleLogin} type="submit">
-            Log in
-          </button>
-        </form>
+                <Button
+                  onClick={this.handleLogin}
+                  color="teal"
+                  fluid
+                  size="large"
+                >
+                  Login
+                </Button>
+              </Segment>
+            </Form>
+            <NavLink to="/register">
+              <Message>
+                New to us? <a href="#">Sign Up</a>
+              </Message>
+            </NavLink>
+          </Grid.Column>
+        </Grid>
       </div>
     );
   }

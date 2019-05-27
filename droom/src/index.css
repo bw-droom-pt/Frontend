@@ -1,23 +1,47 @@
 body {
   width: 800px;
   margin: 0 auto;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Josefin Sans", sans-serif;
+  background-color: #f1f1f1;
 }
 .nav-bar {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   padding: 20px;
-  margin: 0px auto;
   background-color: #7ecad9;
+  margin-bottom: 50px;
 }
-h1 {
+h1,
+h2 {
   text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  letter-spacing: 2px;
+}
+h3,
+h4 {
+  font-family: "Josefin Sans", sans-serif;
 }
 
 a {
   text-decoration: none;
   font-size: 18px;
+}
+.droomBg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+.logo {
+  border-radius: 50%;
+}
+.buttons {
+  margin-left: 60px;
+}
+.aboutContainer p {
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Mandali', sans-serif;
+  margin-top: 65px;
 }
